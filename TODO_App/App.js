@@ -42,6 +42,7 @@ export default function App() {
               renderItem={({ item }) => (
                 <TodoItem item={item} pressItemHandler={DeleteItemHandler} />
               )}
+              showsVerticalScrollIndicator={false}
             />
           ) : (
             <Text style={styles.emptyList}>No Items</Text>
@@ -60,9 +61,11 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 40,
+    flex: 1,
   },
   list: {
     marginTop: 20,
+    flex: 1,
   },
   emptyList: {
     textAlign: "center",
