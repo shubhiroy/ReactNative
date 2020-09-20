@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, FlatList, StyleSheet } from "react-native";
+import { View, Text, FlatList, StyleSheet, Alert } from "react-native";
 import AddTodo from "./components/AddTodo";
 import Header from "./components/Header";
 import TodoItem from "./components/TodoItem";
@@ -22,6 +22,10 @@ export default function App() {
       setTodos((prevTodos) => {
         return [...prevTodos, { text: newTodo, key: Math.random().toString() }];
       });
+    }else {
+      Alert.alert("OOPS!" , "Can't add a blank todo.", [
+        {text: 'Understood'}
+      ]);
     }
   };
 
