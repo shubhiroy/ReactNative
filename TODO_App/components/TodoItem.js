@@ -3,8 +3,8 @@ import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
 const TodoItem = ({item, pressItemHandler}) => {
     return ( 
-       <TouchableOpacity style={styles.item} onPress={() => pressItemHandler(item.key)}>
-           <Text>{item.text}</Text>
+       <TouchableOpacity style={styles.item} onPress={() => pressItemHandler(item.key)}>   
+        <Text>{item.text}</Text>
        </TouchableOpacity> 
      );
 }
