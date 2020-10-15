@@ -1,5 +1,5 @@
-import React from 'react';
-import Animated from "react-native-reanimated";
+import React from "react";
+import Animated, { Extrapolate, interpolate } from "react-native-reanimated";
 
 export interface DotProps {
   index: number;
@@ -7,14 +7,26 @@ export interface DotProps {
 }
 
 const Dot = ({ index, currentIndex }: DotProps) => {
+  const opacity = interpolate(currentIndex, {
+    inputRange: [index - 1, index, index + 1],
+    outputRange: [0.5, 1, 0.5],
+    extrapolate: Extrapolate.CLAMP,
+  });
+  const scale = interpolate(currentIndex, {
+    inputRange: [index - 1, index, index + 1],
+    outputRange: [1, 1.25, 1],
+    extrapolate: Extrapolate.CLAMP,
+  });
   return (
     <Animated.View
       style={{
+        opacity,
+        transform: [{scale}],
         backgroundColor: "#2CB9B0",
         width: 8,
         height: 8,
         borderRadius: 4,
-        margin: 8,
+        margin: 4,
       }}
     />
   );

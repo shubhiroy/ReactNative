@@ -16,24 +16,28 @@ const slides = [
     color: "#BFEAF5",
     subtitle: "TITLE 1",
     description: "Descriton 1",
+    picture: require("../../assets/1.png"),
   },
   {
     title: "Playful",
     color: "#BEECC4",
     subtitle: "TITLE 2",
     description: "Description 2",
+    picture: require("../../assets/2.png"),
   },
   {
     title: "Ecentric",
     color: "#FFE4D9",
     subtitle: "TITLE 3",
     description: "Description 3",
+    picture: require("../../assets/3.png"),
   },
   {
     title: "Funky",
     color: "#FFDDDD",
     subtitle: "TITLE 4",
     description: "Description 4",
+    picture: require("../../assets/4.png"),
   },
 ];
 
@@ -56,8 +60,8 @@ const Onboarding = () => {
           bounces={false}
           {...scrollHandler}
         >
-          {slides.map(({ title }, index) => (
-            <Slide key={index} label={title} right={index % 2 != 0} />
+          {slides.map(({ title, picture }, index) => (
+            <Slide key={index} label={title} right={index % 2 != 0} picture={picture} />
           ))}
         </Animated.ScrollView>
       </Animated.View>
@@ -108,6 +112,7 @@ const styles = StyleSheet.create({
   slider: {
     height: SLIDE_HEIGHT,
     borderBottomRightRadius: BORDER_RADIUS,
+    overflow: "hidden",
   },
   footer: {
     flex: 1,
@@ -118,11 +123,12 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: BORDER_RADIUS,
   },
   pagination: {
-    ...StyleSheet.absoluteFillObject,
+    // ...StyleSheet.absoluteFillObject,
     height: BORDER_RADIUS,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    marginBottom: -30,
   },
 });
 
